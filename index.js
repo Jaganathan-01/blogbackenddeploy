@@ -8,9 +8,11 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
+var cors = require('cors')
 
 dotenv.config();
 app.use(express.json());
+app.use(cors({origin:"*"}))
 app.use("/images", express.static(path.join(__dirname, "/images")));
 app.get('/', (req, res) => {
   res.send("GET Request Called")
